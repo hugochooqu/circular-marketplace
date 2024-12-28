@@ -35,6 +35,10 @@ body {
     @apply text-[14px] leading-[20px] font-medium;
   }
 
+  .subtitle-2 {
+    @apply text-[14px] leading-[20px] font-semibold;
+  }
+
   .header-container{
     @apply h-14 w-[60%] rounded-3xl bg-green-500 text-white justify-center items-center
   }
@@ -77,6 +81,19 @@ body {
 
   .shad-input {
     @apply border-none shadow-none p-0 shad-no-focus body-2 !important;
+  }
+
+  .shad-otp {
+    @apply w-full flex gap-1 sm:gap-2 justify-between !important;
+  }
+  .shad-otp-slot {
+    @apply text-[40px] font-medium rounded-xl ring-green-500  text-green-100 justify-center flex border-2 border-green-200 size-12 md:size-16 gap-5 !important;
+  }
+  .shad-alert-dialog {
+@apply space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none !important;
+  }
+  .shad-submit-btn {
+    @apply bg-green-500 button hover:bg-green-300 transition-all rounded-full !important;
   }
 
 }

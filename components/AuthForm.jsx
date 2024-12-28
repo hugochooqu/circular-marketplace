@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,6 +16,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "./UI/input";
 import Link from "next/link";
+import { createAccount, signInUser } from "@/lib/actions/user.actions";
+import OTPmodal from "./OTPmodal";
+import Image from "next/image";
 
 const authFormSchema = (type) => {
   return z.object({
@@ -26,6 +29,11 @@ const authFormSchema = (type) => {
 };
 
 const AuthForm = ({ type }) => {
+    const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [accountId, setAccountId] = useState("")
+  
+
     const formSchema = authFormSchema(type);
     const form = useForm({
       resolver: zodResolver(formSchema),
@@ -37,7 +45,24 @@ const AuthForm = ({ type }) => {
     });
 
   const onSubmit = async (values) => {
-    console.log(values);
+    setIsLoading(true)
+    setErrorMessage("")
+ console.log(values)
+    try {
+      const user = 
+        type === 'sign-up'?
+      await createAccount(
+         values.fullName || "",
+         values.email,
+      ) : await signInUser({email: values.email});
+
+      console.log(user)
+      setAccountId(user)
+    } catch {
+      setErrorMessage("Failed to create account. please try again" )
+    } finally {
+      setIsLoading(false)
+    }
   };
 
   return (
@@ -94,6 +119,15 @@ const AuthForm = ({ type }) => {
           />
           <Button type="submit" className="form-submit-button">
           {type === "sign-in" ? "Sign In" : "Sign Up"}{" "}
+          {isLoading && (
+              <Image
+                src="/assets/icons/loader.svg"
+                alt="loading"
+                className="ml-2 animate-spin"
+                width={24}
+                height={24}
+              />
+            )}
           </Button>
 
           <div className="flex body-2 justify-center">
@@ -108,6 +142,10 @@ const AuthForm = ({ type }) => {
           </div>
         </form>
       </Form>
+
+      {accountId && (
+        <OTPmodal email={form.getValues("email")} accountId={accountId} />
+      )}
     </div>
   );
 };
