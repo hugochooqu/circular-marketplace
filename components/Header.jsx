@@ -4,7 +4,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-center pt-8">
+    <div className="flex items-center justify-center pt-8 relative">
       <div className="header-container px-8">
         <ul className="flex flex-row justify-between items-center mt-4">
           {headerItems.map((item) => (

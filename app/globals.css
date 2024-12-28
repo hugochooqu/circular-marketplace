@@ -24,9 +24,14 @@ body {
 
 @layer utilities {
   .header-container{
-    @apply h-14 w-[60%] rounded-3xl bg-green-500 text-black justify-center items-center
+    @apply h-14 w-[60%] rounded-3xl bg-green-500 text-white justify-center items-center
   }
   .header-logo{
     @apply font-bold sm:block !important
+  }
+
+  /* button */
+  .button{
+    @apply flex justify-center items-center h-12 w-56 bg-green-500 rounded-3xl
   }
 }
