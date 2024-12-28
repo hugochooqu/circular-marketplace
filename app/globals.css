@@ -23,6 +23,18 @@ body {
 }
 
 @layer utilities {
+  .h1 {
+    @apply text-[34px] leading-[42px] font-bold;
+  }
+
+  .body-2 {
+    @apply text-[14px] leading-[20px] font-normal;
+  }
+
+  .button {
+    @apply text-[14px] leading-[20px] font-medium;
+  }
+
   .header-container{
     @apply h-14 w-[60%] rounded-3xl bg-green-500 text-white justify-center items-center
   }
@@ -32,6 +44,39 @@ body {
 
   /* button */
   .button{
-    @apply flex justify-center items-center h-12 w-56 bg-green-500 rounded-3xl
+    @apply flex justify-center items-center h-10 w-full bg-green-500 rounded-3xl
   }
+
+  .auth-form {
+    @apply flex max-h-[800px] w-full max-w-[580px] flex-col justify-center space-y-6 transition-all lg:h-full lg:space-y-8 !important;
+  }
+  .form-title {
+    @apply h1 text-center text-green-500 md:text-left !important;
+  }
+  .form-submit-button {
+    @apply primary-btn h-[66px] !important;
+  }
+
+  .primary-btn {
+    @apply bg-green-500 hover:bg-green-300 transition-all rounded-full button !important;
+  }
+
+  /* ===== SHADCN OVERRIDES */
+  .shad-no-focus {
+    @apply outline-none ring-offset-transparent focus:ring-transparent focus:ring-offset-0 focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+  }
+  .shad-form-message {
+    @apply text-red-400 body-2 ml-4 !important;
+  }
+  .shad-form-item {
+    @apply flex h-[78px] flex-col justify-center rounded-xl border border-green-100 px-4 ;
+  }
+  .shad-form-label {
+    @apply text-green-500 pt-2 body-2 w-full !important;
+  }
+
+  .shad-input {
+    @apply border-none shadow-none p-0 shad-no-focus body-2 !important;
+  }
+
 }
