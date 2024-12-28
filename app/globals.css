@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -18,4 +19,14 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+}
+
+@layer utilities {
+  .header-container{
+    @apply h-14 w-[60%] rounded-3xl bg-green-500 text-black justify-center items-center
+  }
+  .header-logo{
+    @apply font-bold sm:block !important
+  }
 }
