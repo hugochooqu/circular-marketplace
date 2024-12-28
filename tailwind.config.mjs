@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'marketplace': "url('/pexels-manuela-adler-344311-949194.jpg')"
+      }
     },
   },
   plugins: [],
