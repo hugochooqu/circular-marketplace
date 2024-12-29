@@ -4,16 +4,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import  Button  from "@/components/ui/button";
+import  Button  from "@/components/UI/button";
 import {
   Form,
   FormControl,
-  FormDescription,
+//   FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
+} from "@/components/UI/form";
 import { Input } from "./UI/input";
 import Link from "next/link";
 import { createAccount, signInUser } from "@/lib/actions/user.actions";
