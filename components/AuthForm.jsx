@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import  Button  from "@/components/UI/button";
+import  Button  from "@/components/ui/Button";
 import {
   Form,
   FormControl,
@@ -13,8 +13,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/UI/form";
-import { Input } from "./UI/input";
+} from "@/components/ui/form";
+import { Input } from "./ui/input";
 import Link from "next/link";
 import { createAccount, signInUser } from "@/lib/actions/user.actions";
 import OTPmodal from "./OTPmodal";
