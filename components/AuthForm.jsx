@@ -14,17 +14,28 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/UI/form";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/UI/select"
+
 import { Input } from "./UI/input";
 import Link from "next/link";
 import { createAccount, signInUser } from "@/lib/actions/user.actions";
 import OTPmodal from "./OTPmodal";
 import Image from "next/image";
+import { Separator } from "./UI/separator";
 
 const authFormSchema = (type) => {
   return z.object({
     email:z.string().email(),
     fullName:
       type === "sign-up" ? z.string().min(2).max(50) : z.string().optional(),
+    role: z.string()
   });
 };
 
@@ -40,7 +51,7 @@ const AuthForm = ({ type }) => {
       defaultValues: {
         fullName: "",
         email: "",
-        user: "",
+        role: "",
       },
     });
 
@@ -53,7 +64,7 @@ const AuthForm = ({ type }) => {
         type === 'sign-up'?
       await createAccount(
          values.fullName || "",
-         values.email,
+         values.email, values.role
       ) : await signInUser( values.email);
 
       console.log(user)
@@ -72,6 +83,30 @@ const AuthForm = ({ type }) => {
           <h1 className="form-title">
             {type === "sign-in" ? "Sign In" : "Sign Up"}
           </h1>
+          {type === 'sign-up' && (
+            <FormField
+            control={form.control}
+            name="role"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Role</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a role" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent className="bg-white z-10">
+                    <SelectItem value="individual">Individual</SelectItem>
+                    <Separator className='my-2 bg-green-400' />
+                    <SelectItem value="ngo">NGO</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          )}
           {type === "sign-up" && (
             <FormField
               control={form.control}
