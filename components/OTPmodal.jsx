@@ -10,15 +10,15 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
+} from "@/components/UI/alert-dialog";
 
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
+} from "@/components/UI/input-otp";
 import Image from "next/image";
-import  Button  from "./ui/button";
+// import  Button  from "./ui/button";
 import { sendEmailOTP, verifySecret } from "@/lib/actions/user.actions";
 import { useRouter } from "next/navigation";
 
