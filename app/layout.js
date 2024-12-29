@@ -1,5 +1,8 @@
+'use client'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { useState, useEffect } from 'react';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +20,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const [isLoading, setLoading] = useState(true)
   return (
     <html lang="en">
       <body
@@ -24,6 +28,8 @@ export default function RootLayout({ children }) {
       >
         {children}
       </body>
+      
     </html>
   );
+
 }
