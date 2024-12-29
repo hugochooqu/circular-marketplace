@@ -3,6 +3,25 @@
 @tailwind utilities;
 
 @layer base {
+  .remove-scrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    border-radius: 0px;
+  }
+
+  .remove-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .remove-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 0px;
+  }
+
+  .remove-scrollbar::-webkit-scrollbar-thumb:hover {
+    /* background: #1e2238; */
+    background: transparent;
+  }
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -27,6 +46,10 @@ body {
     @apply text-[34px] leading-[42px] font-bold;
   }
 
+  .h5 {
+    @apply text-[16px] leading-[24px] font-semibold;
+  }
+
   .body-2 {
     @apply text-[14px] leading-[20px] font-normal;
   }
@@ -44,6 +67,14 @@ body {
   }
   .header-logo{
     @apply font-bold sm:block !important
+  }
+  .caption {
+    @apply text-[12px] leading-[16px] font-normal;
+  }
+
+  /* Root Layout*/
+  .main-content {
+    @apply remove-scrollbar h-full flex-1 overflow-auto bg-slate-200 px-5 py-7 sm:mr-7 sm:rounded-[30px] md:mb-7 md:px-9 md:py-10 !important;
   }
 
   /* button */
@@ -87,13 +118,33 @@ body {
     @apply w-full flex gap-1 sm:gap-2 justify-between !important;
   }
   .shad-otp-slot {
-    @apply text-[40px] font-medium rounded-xl ring-green-500  text-green-100 justify-center flex border-2 border-green-200 size-12 md:size-16 gap-5 !important;
+    @apply text-[40px] font-medium rounded-xl ring-green-500  text-green-300 justify-center flex border-2 border-green-200 size-12 md:size-16 gap-5 !important;
   }
   .shad-alert-dialog {
 @apply space-y-4 max-w-[95%] sm:w-fit rounded-xl md:rounded-[30px] px-4 md:px-8 py-10 bg-white outline-none !important;
   }
   .shad-submit-btn {
     @apply bg-green-500 button hover:bg-green-300 transition-all rounded-full !important;
+  }
+
+  /* Sidebar */
+
+  .sidebar {
+    @apply remove-scrollbar hidden h-screen w-[90px] flex-col overflow-auto px-5 py-7 sm:flex lg:w-[280px] xl:w-[325px] !important;
+  }
+
+  .sidebar-nav {
+    @apply h5 mt-9 flex-1 gap-1 text-green-500 !important;
+  }
+  .sidebar-nav-item {
+    @apply flex text-slate-700 gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center h5 lg:px-[30px] h-[35px] lg:rounded-full !important;
+  }
+  .sidebar-user-info {
+    @apply mt-4 flex items-center justify-center gap-2 rounded-full bg-green-500/10 p-1 text-slate-700 lg:justify-start lg:p-3 !important;
+  }
+
+  .shad-active {
+    @apply bg-green-500 text-white drop-shadow !important;
   }
 
 }
