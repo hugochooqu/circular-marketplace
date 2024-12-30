@@ -22,15 +22,31 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 6000);
+
+    return () => clearTimeout(timer);
+  }, [])
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-         <Preloader />
-         {children}
+        {isLoading? <Preloader /> : children}
       </body>
     </html>
   );
 }
+
+const preloadImage = (url) => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = url;
+    img.onload = resolve;
+  });
+};
