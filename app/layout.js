@@ -50,3 +50,4 @@ const preloadImage = (url) => {
     img.onload = resolve;
   });
 };
+  
