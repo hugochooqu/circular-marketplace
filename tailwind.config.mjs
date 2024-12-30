@@ -12,8 +12,8 @@ export default {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
-        'marketplace': "url('/pexels-manuela-adler-344311-949194.jpg')",
-        'authBg': "url('/pexels-felixmittermeier-957024.jpg')"
+        'marketplace': "url('/pexels-baskincreativeco-1766838.webp')",
+        'authBg': "url('/pexels-felixmittermeier-957024.webp')"
       }
     },
   },

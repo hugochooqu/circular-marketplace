@@ -23,14 +23,27 @@ const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const [isLoading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false)
-    }, 6000);
+    // const timer = setTimeout(() => {
+    //   setLoading(false)
+    // }, 6000);
 
-    return () => clearTimeout(timer);
+    // return () => clearTimeout(timer);
+    const handleLoad = () => {
+      setIsLoading(false)
+    };
+
+    if (document.readyState === 'complete') {
+      handleLoad()
+    } else (
+      window.addEventListener('load', handleLoad)
+    );
+
+    return () =>  window.removeEventListener('load', handleLoad)
+
+
   }, [])
 
   return (
@@ -38,10 +51,18 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {isLoading? <Preloader /> : children}
+        {isLoading ? <Preloader /> : children}
       </body>
       
     </html>
   );
 
 }
+
+const preloadImage = (url) => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = url;
+    img.onload = resolve;
+  });
+};
