@@ -88,21 +88,21 @@ const AuthForm = ({ type }) => {
             control={form.control}
             name="role"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Role</FormLabel>
+              <FormItem className="shad-form-item">
+                <FormLabel className='shad-form-label'>Role</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
                       <SelectValue placeholder="Select a role" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent className="bg-white z-10">
+                  <SelectContent className="bg-white z-10 shad-input">
                     <SelectItem value="individual">Individual</SelectItem>
                     <Separator className='my-2 bg-green-400' />
                     <SelectItem value="ngo">NGO</SelectItem>
                   </SelectContent>
                 </Select>
-                <FormMessage />
+                <FormMessage className="shad-form-message" />
               </FormItem>
             )}
           />
