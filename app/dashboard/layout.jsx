@@ -1,3 +1,4 @@
+import DashboardHeader from '@/components/DashboardHeader'
 import Sidebar from '@/components/Sidebar'
 import { getCurrentUser } from '@/lib/actions/user.actions'
 import { redirect } from 'next/navigation'
@@ -10,11 +11,11 @@ const layout = async({children}) => {
 
   return (
    <main className='flex h-screen'>
-    <Sidebar {...currentUser}  />
-    <section className='flex h-full flex-1 flex-col'>
-        <div>Mobile nav</div>
-        <div>Dashboard header</div>
-        <div className='main-content'>{children}</div>
+    {/* <Sidebar {...currentUser}  /> */}
+    <section className='flex h-full flex-1 flex-col '>
+        {/* <div>Mobile nav</div> */}
+        <DashboardHeader {...currentUser} />
+        <div className='main-content ml-7 mt-6'>{children}</div>
     </section>
    </main>
   )
