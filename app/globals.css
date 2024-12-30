@@ -147,10 +147,8 @@ body {
     @apply bg-green-500 text-white drop-shadow !important;
   }
 
-<<<<<<< HEAD
 }
 
-=======
     /* Thumbnail */
     .thumbnail {
       @apply flex items-center justify-center size-[150px] min-w-[50px] overflow-hidden rounded-full bg-green-500/10;
@@ -159,5 +157,4 @@ body {
       @apply size-full object-cover object-center !important;
     }
 
-}
->>>>>>> 564fa42c1994d100b3eaa47172ccfa73c86b4f0b
+
