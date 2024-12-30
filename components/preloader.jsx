@@ -1,29 +1,31 @@
 "use client"; 
 
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
 const Preloader = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  
+  /* Calling a useEffect will cause a behavior we don't need, it's like setting the timer twice, it was best to set the timer in the layout so that it will call it before the whole pade loads */
+  // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const handleLoad = () => {
-      setTimeout(() => {
-        setIsLoading(false); // Hide preloader after page load
-      }, 1500); // Optional delay for smoother effect
-    };
+  // useEffect(() => {
+  //   const handleLoad = () => {
+  //     setTimeout(() => {
+  //       setIsLoading(false); // Hide preloader after page load
+  //     }, 1500); // Optional delay for smoother effect
+  //   };
 
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
+  //   if (document.readyState === "complete") {
+  //     handleLoad();
+  //   } else {
+  //     window.addEventListener("load", handleLoad);
+  //   }
 
-    return () => {
-      window.removeEventListener("load", handleLoad);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("load", handleLoad);
+  //   };
+  // }, []);
 
-  if (!isLoading) return null; // Do not render the preloader when loading is complete
+  // if (!isLoading) return null; // Do not render the preloader when loading is complete
 
   return (
     <div className="flex items-center justify-center h-screen bg-[hsl(223,90%,10%)] text-[hsl(223,90%,90%)]">
