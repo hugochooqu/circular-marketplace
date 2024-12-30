@@ -4,6 +4,7 @@ import "./globals.css";
 // import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic'
 import Preloader from "../components/preloader";
+import Menu from "../components/menu";
 
 
 const geistSans = Geist({
@@ -37,7 +38,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {isLoading? <Preloader /> : children}
+        {isLoading? <Preloader />  : children}
       </body>
     </html>
   );

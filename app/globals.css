@@ -79,7 +79,7 @@ body {
 
   /* button */
   .button{
-    @apply flex justify-center items-center h-10 w-full bg-green-500 rounded-3xl
+    @apply flex justify-center items-center h-10 w-full bg-gray-900 rounded-3xl
   }
 
   .auth-form {
@@ -148,3 +148,4 @@ body {
   }
 
 }
+
