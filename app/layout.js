@@ -1,8 +1,9 @@
-'use client'
+// 'use client'
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { useState, useEffect } from 'react';
-
+// import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic'
+import Preloader from "../components/preloader";
 
 
 const geistSans = Geist({
@@ -21,16 +22,15 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const [isLoading, setLoading] = useState(true)
+  // const [isLoading, setLoading] = useState(true)
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+         <Preloader />
+         {children}
       </body>
-      
     </html>
   );
-
 }

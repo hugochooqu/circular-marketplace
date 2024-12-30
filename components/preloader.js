@@ -1,8 +1,83 @@
-import React from "react";
+"use client"; // Ensure this is a client component
 
-const RotatingStar = () => {
+import React, { useEffect, useState } from "react";
+
+const Preloader = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setTimeout(() => {
+        setIsLoading(false); // Hide preloader after page load
+      }, 1500); // Optional delay for smoother effect
+    };
+
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+    }
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, []);
+
+  if (!isLoading) return null; // Do not render the preloader when loading is complete
+
   return (
-    <div className="flex items-center justify-center h-screen bg-[hsl(var(--hue),90%,10%)] text-[hsl(var(--hue),90%,90%)]">
+    <div className="flex items-center justify-center h-screen bg-[hsl(223,90%,10%)] text-[hsl(223,90%,90%)]">
+      <style jsx global>{`
+        :root {
+          --hue: 223;
+        }
+
+        .pl {
+          display: block;
+          margin: auto;
+          width: 8em;
+          height: auto;
+        }
+
+        .pl__star {
+          animation: spin 10s linear infinite;
+          transform-origin: 32px 32px;
+        }
+
+        .pl__worm {
+          animation: worm-length 10s linear infinite, worm-move 10s linear infinite;
+        }
+
+        @keyframes spin {
+          from {
+            transform: rotate(0);
+          }
+          to {
+            transform: rotate(1turn);
+          }
+        }
+
+        @keyframes worm-length {
+          0%,
+          50%,
+          100% {
+            stroke-dasharray: 0.1 190.88;
+          }
+          25%,
+          75% {
+            stroke-dasharray: 28.632 162.248;
+          }
+        }
+
+        @keyframes worm-move {
+          0% {
+            stroke-dashoffset: 0;
+          }
+          100% {
+            stroke-dashoffset: -190.88;
+          }
+        }
+      `}</style>
       <svg
         className="pl"
         viewBox="0 0 64 64"
@@ -57,4 +132,4 @@ const RotatingStar = () => {
   );
 };
 
-export default RotatingStar;
+export default Preloader;
