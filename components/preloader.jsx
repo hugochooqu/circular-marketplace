@@ -1,6 +1,6 @@
 import React from "react";
 
-const RotatingStar = () => {
+const Preloader = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-[hsl(var(--hue),90%,10%)] text-[hsl(var(--hue),90%,90%)]">
       <svg
@@ -57,4 +57,4 @@ const RotatingStar = () => {
   );
 };
 
-export default RotatingStar;
+export default Preloader;
