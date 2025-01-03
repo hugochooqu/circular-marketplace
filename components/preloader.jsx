@@ -4,7 +4,6 @@
 
 const Preloader = () => {
   
-  /* Calling a useEffect will cause a behavior we don't need, it's like setting the timer twice, it was best to set the timer in the layout so that it will call it before the whole pade loads */
   // const [isLoading, setIsLoading] = useState(true);
 
   // useEffect(() => {
@@ -28,7 +27,7 @@ const Preloader = () => {
   // if (!isLoading) return null; // Do not render the preloader when loading is complete
 
   return (
-    <div className="flex items-center justify-center h-screen bg-[hsl(223,90%,10%)] text-[hsl(223,90%,90%)]">
+    <div className="flex items-center justify-center h-screen bg-[hsl(0,0%,0%)] text-[hsl(223,90%,90%)]">
       <style jsx global>{`
         :root {
           --hue: 223;
@@ -80,6 +79,7 @@ const Preloader = () => {
           }
         }
       `}</style>
+
       <svg
         className="pl"
         viewBox="0 0 64 64"

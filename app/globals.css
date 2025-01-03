@@ -79,7 +79,7 @@ body {
 
   /* button */
   .button{
-    @apply flex justify-center items-center h-10 w-full bg-green-500 rounded-3xl
+    @apply flex justify-center items-center h-10 w-full bg-gray-900 rounded-3xl
   }
 
   .auth-form {
@@ -147,6 +147,8 @@ body {
     @apply bg-green-200 rounded-2xl !text-black drop-shadow !important;
   }
 
+}
+
     /* Thumbnail */
     .thumbnail {
       @apply flex items-center justify-center size-[150px] min-w-[50px] overflow-hidden rounded-full bg-green-500/10;
@@ -155,4 +157,4 @@ body {
       @apply size-full object-cover object-center !important;
     }
 
-}
+
