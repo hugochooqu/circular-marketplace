@@ -31,6 +31,7 @@ export default function RootLayout({ children }) {
       window.addEventListener("load", handleLoad);
     }
 
+
     return () => {
       window.removeEventListener("load", handleLoad);
     };

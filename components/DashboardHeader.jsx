@@ -18,14 +18,19 @@ const DashboardHeader = ({role}) => {
             <ul className='flex flex-row '>
                 <li className={cn(
                   "sidebar-nav-item",
-                  pathname === '/dashboard' && ""
+                  pathname === '/dashboard' && "shad-active"
                 )}><Link href='/dashboard'>Dashboard</Link></li>
+
+<li className={cn(
+                  "sidebar-nav-item",
+                  pathname === '/dashboard/profile' && "shad-active"
+                )}><Link href='/dashboard/profile'>Profile</Link></li>
 
                 {role === 'individual' && (
                     <li className={cn(
                         "sidebar-nav-item",
                         pathname === '/dashboard/browse' && "shad-active"
-                      )}><Link href='dashboard/browse'>Browse Donations</Link></li>
+                      )}><Link href='/dashboard/browse'>Browse Donations</Link></li>
                 )} 
 
                 {role === 'ngo' && (
@@ -33,14 +38,14 @@ const DashboardHeader = ({role}) => {
                     <li className={cn(
                         "sidebar-nav-item",
                         pathname === '/dashboard/post' && "shad-active"
-                      )}><Link href='dashboard/post'>Post Donations</Link></li>
+                      )}><Link href='/dashboard/post'>Post Donations</Link></li>
                       
                     </>
                 )}
                 <li className={cn(
                         "sidebar-nav-item",
                         pathname === '/dashboard/manage' && "shad-active"
-                      )}><Link href='dashboard/manage'>Manage {role === 'individual' ? 'Requests' : 'Donations'}</Link></li>
+                      )}><Link href='/dashboard/manage'>Manage {role === 'individual' ? 'Requests' : 'Donations'}</Link></li>
             </ul>
         </nav>
         <div className='flex flex-row gap-12 mr-10 justify-between'>

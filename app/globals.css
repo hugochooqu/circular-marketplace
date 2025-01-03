@@ -144,7 +144,7 @@ body {
   }
 
   .shad-active {
-    @apply bg-green-500 text-white drop-shadow !important;
+    @apply bg-green-200 rounded-2xl !text-black drop-shadow !important;
   }
 
     /* Thumbnail */
